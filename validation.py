@@ -1,5 +1,6 @@
 from exceptions import invalidExpense
 
+
 CATEGORIES = [
     "Food",
     "Shopping",
@@ -9,6 +10,7 @@ CATEGORIES = [
     "Other"
 ]
 
+
 def validateTitle(title):
     title = title.strip()
 
@@ -16,6 +18,7 @@ def validateTitle(title):
         invalidExpense("Title cannot be empty!")
 
     return title
+
 
 def validateAmount(amount):
     try:
@@ -28,3 +31,12 @@ def validateAmount(amount):
         invalidExpense("Amount must be greater than 0!")
 
     return amount
+
+
+def validateCategory(category):
+    category = category.strip().lower()
+
+    if category not in CATEGORIES:
+        invalidExpense("Invalid category!")
+
+    return category
